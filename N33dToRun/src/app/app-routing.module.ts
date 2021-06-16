@@ -18,6 +18,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'inscription',
+    loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
+  },
+  {
+    path: 'mdp-oublie',
+    loadChildren: () => import('./mdp-oublie/mdp-oublie.module').then( m => m.MdpOubliePageModule)
   }
 ];
 

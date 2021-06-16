@@ -26,22 +26,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-    this.initializeApp();
+
   }
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.afAuth.authState.subscribe(auth => {
-        if (!auth) {
-          console.log('non connecté');
-          this.router.navigateByUrl('/login');
-        } else {
-          this.router.navigateByUrl('/');
-          console.log('Connecté: ' + auth.uid);
-        }
-      });
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+
 
 }

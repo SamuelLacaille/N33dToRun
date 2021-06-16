@@ -1,24 +1,23 @@
-<ion-item>
-  <ion-label>
-    <p>Méthode de connexion</p>
-    <h2><b>email & {{ method }}</b></h2>
-  </ion-label>
-</ion-item>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic 5 Form
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-item>
-  <ion-label>
-    <p>Identifiant</p>
-    <h2><b>{{ userId }}</b></h2>
-  </ion-label>
-</ion-item>
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/inscription']" expand="block" color="primary">Inscription</ion-button>
 
-<ion-item>
-  <ion-label>
-    <p>Adresse email</p>
-    <h2><b>{{ mail }}</b></h2>
-  </ion-label>
-</ion-item>
+        <span class="divider line one-line"> ou </span>
 
-<div class="ion-padding">
-  <ion-button expand="block" color="danger" (click)="logout()">Déconnexion</ion-button>
-</div>
+        <span class="already">Déjà inscrit ?</span>
+
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Se connecter</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
