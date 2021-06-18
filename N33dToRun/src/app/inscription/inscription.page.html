@@ -9,16 +9,7 @@
 
 <ion-content>
   <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Nom :</ion-label>
-      <ion-input type="text" #userNom required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Prénom :</ion-label>
-      <ion-input type="text" #userPrenom required></ion-input>
-    </ion-item>
-
+   
     <ion-item lines="full">
       <ion-label position="floating">Email :</ion-label>
       <ion-input type="email" #userEmail required></ion-input>
@@ -31,7 +22,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block"  (click)="authService.SignUp(userNom.value, userPrenom.value, userEmail.value, userMdp.value)">S'inscrire</ion-button>
+        <ion-button type="submit" color="danger" expand="block"  (click)="authService.SignUp(userEmail.value, userMdp.value)">S'inscrire</ion-button>
       </ion-col>
     </ion-row>
   </form>
