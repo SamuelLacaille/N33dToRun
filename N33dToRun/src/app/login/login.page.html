@@ -11,17 +11,17 @@
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Email :</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text"  #email required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Mot de passe :</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input type="password" #userPassword required></ion-input>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Se connecter</ion-button>
+        <ion-button type="submit" color="danger" expand="block" (click)="authService.SignIn(email.value, userPassword.value)">Se connecter</ion-button>
         <a [routerLink]="['/mdp-oublie']" class="small-text">Mot de passe oublié ?</a>
       </ion-col>
     </ion-row>
