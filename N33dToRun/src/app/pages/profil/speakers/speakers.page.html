@@ -1,0 +1,20 @@
+<ion-content>
+    <div>
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>Name utilisateur</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+        <ng-template #error>
+            <app-error (retry)="load()"
+                message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">
+            </app-error>
+        </ng-template>
+    </div>
+</ion-content>
