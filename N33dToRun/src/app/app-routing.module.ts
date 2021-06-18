@@ -21,7 +21,15 @@ const routes: Routes = [
   },
   {
     path: 'pages/profil',
-    loadChildren: () => import('./pages/profil/profil.module').then( m => m.ProfilPageModule)
+    loadChildren: () => import('./pages/profil/profil.module').then( m => m.ProfilPageModule),
+  },
+  {
+    path: 'pages/profil/speakers/update',
+    loadChildren: () => import('./pages/profil/speakers/update/update.module').then( m => m.UpdatePageModule),
+  },
+  {
+    path: 'pages/stats',
+    loadChildren: () => import('./pages/stats/stats.module').then( m => m.StatsPageModule),
   },
 ];
 

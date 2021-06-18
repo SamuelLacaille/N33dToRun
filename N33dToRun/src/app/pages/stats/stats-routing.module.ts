@@ -1,43 +1,43 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProfilPage } from './profil.page';
+import { StatsPage } from './stats.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilPage,
+    component: StatsPage,
     children: [
       {
-        path: 'accueil',
+        path: 'day',
         children : [         
           {
             path: '',
-            loadChildren: () => import('./accueil/accueil.module').then(m => m.AccueilPageModule),          
+            loadChildren: () => import('./day/day.module').then(m => m.DayPageModule),          
           },
         ]
       },
       {
-        path: 'speakers',
+        path: 'month',
         children : [         
           {
             path: '',
-            loadChildren: () => import('./speakers/speakers.module').then(m => m.SpeakersPageModule),
+            loadChildren: () => import('./month/month.module').then(m => m.MonthPageModule),
           },
         ]
       },
       {
-        path: 'map',
+        path: 'year',
         children : [         
           {
             path: '',
-            loadChildren: () => import('../map/map.module').then(m => m.MapPageModule),
+            loadChildren: () => import('./year/year.module').then(m => m.YearPageModule),
           },
         ]
       },
       {
         path: '',
-        redirectTo: 'accueil',
+        redirectTo: 'day',
         pathMatch: 'full'
       }
     ]
@@ -49,4 +49,4 @@ console.log(routes)
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfilPageRoutingModule {}
+export class StatsPageRoutingModule {}
