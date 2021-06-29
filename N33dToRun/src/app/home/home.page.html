@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      N33D TO  RUN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/inscription']" expand="block" color="primary">Inscription</ion-button>
+
+        <span class="divider line one-line"> ou </span>
+
+        <span class="already">Déjà inscrit ?</span>
+
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Connexion</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
