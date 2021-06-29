@@ -1,0 +1,17 @@
+{
+  "appId": "com.rdelbaere.foodplace",
+  "appName": "FoodPlace",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+        "GOOGLE_MAPS_ANDROID_API_KEY": "bonjour"
+    }
+  }
+}

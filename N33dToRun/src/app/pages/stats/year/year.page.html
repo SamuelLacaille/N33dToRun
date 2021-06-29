@@ -1,0 +1,10 @@
+<ion-content>
+    <div>
+
+        <ng-template #error>
+            <app-error (retry)="load()"
+                message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">
+            </app-error>
+        </ng-template>
+    </div>
+</ion-content>

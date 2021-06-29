@@ -1,10 +1,14 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -31,9 +35,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
+
+  //  {provide: LOCALE_ID, useValue: 'fr' },],
+
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,],
-  providers: [SplashScreen, StatusBar, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    AngularFireAuthModule, HttpClientModule],
+  providers: [SplashScreen, StatusBar, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: LOCALE_ID, useValue: 'fr' },],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,29 @@
+p{
+    margin: 10px;
+}
+
+ion-card-subtitle{
+    color: var( --ion-color-tertiary );
+}
+
+.blocLeft{
+    height: 100px;
+    border: solid 1px;
+    margin-left: -5px;
+    text-align: center;
+}
+
+.blocRight{
+    height: 100px;
+    border: solid 1px;
+    margin-right: -5px;
+    text-align: center;
+}
+
+.blocCenter{
+    border: solid 1px;
+    height: 200px;
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: center;
+}

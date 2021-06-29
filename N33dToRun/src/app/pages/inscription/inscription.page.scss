@@ -1,0 +1,71 @@
+.landing{
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.gbnews.ch/wp-content/gbnews-uploads/2019/03/346px-La_Joconde.jpg');
+  background-size: cover;
+
+  .landing-content{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+h1{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+h2{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+ .logo{
+  background-image: url("../../../assets/pictures/run.png");
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position: center;
+  margin-top: 2%;
+  padding: 19%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.text{
+  color: 'white';
+}
+form{
+  padding: 20px;
+
+  .validButton{
+      margin-top: 20px;
+      height: 100px;
+  position: relative;
+  }
+
+  ion-button{
+    width: 150px;
+  }
+
+  .vertical {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  }
+}
+
+ion-menu-button{
+  color: var( --ion-color-success );
+}

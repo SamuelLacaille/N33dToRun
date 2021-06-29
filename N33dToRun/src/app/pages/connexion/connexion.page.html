@@ -1,0 +1,47 @@
+
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Connexion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <div>
+            <h1>N33dToRun</h1>
+            <div class='logo'></div>
+            <h2>Sign In</h2>
+      </div>
+    <form [formGroup]="connectionForm" (submit)="send()">
+        <ion-item>
+            <ion-input placeholder="Prénom" formControlName="name"></ion-input>
+        </ion-item>
+        <div *ngIf="connectionForm.controls.name.invalid && connectionForm.controls.name.dirty">
+            Vous devez saisir un nom d'au moins 3 cractères
+        </div>
+        <ion-item>
+            <ion-input placeholder="Nom" formControlName="firstName"></ion-input>
+        </ion-item>
+        <div *ngIf="connectionForm.controls.firstName.invalid && connectionForm.controls.firstName.dirty">
+            Vous devez saisir un nom d'au moins 3 cractères
+        </div>
+        <ion-item>
+            <ion-input placeholder="E-mail" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="connectionForm.controls.email.invalid && connectionForm.controls.email.dirty">
+            Vous devez saisir un email valide
+        </div>
+        <ion-item>
+            <ion-input placeholder="PassWord" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngIf="connectionForm.controls.password.invalid && connectionForm.controls.password.dirty">
+            Vous devez saisir un sujet d'au moins 10 caractères
+        </div>
+        <div class="validButton">
+        <div class="vertical">
+            <ion-button type="submit">Envoyer</ion-button>
+            </div>
+        </div>
+    </form>
+</ion-content>

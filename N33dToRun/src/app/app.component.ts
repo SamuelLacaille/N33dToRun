@@ -11,12 +11,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Home', url: '/pages/home', icon: 'home' },
+    { title: 'Profil', url: '/pages/profil', icon: 'person' },
+    { title: 'Stats', url: '/pages/stats', icon: 'stats-chart' },
+    { title: 'Map', url: '/pages/map', icon: 'map' },
+    { title: 'Inscription', url: '/pages/inscription', icon: 'reader' },
+    { title: 'Connexion', url: '/pages/connexion', icon: 'log-in' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
