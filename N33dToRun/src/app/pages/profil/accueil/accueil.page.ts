@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { PlaceService } from 'src/app/services/place.service';
+// import { PlaceService } from 'src/app/services/place.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class AccueilPage implements OnInit {
     private loaded: boolean = false;
     private places: Object;
 
-    constructor(public placeService: PlaceService){}
+    constructor(){}
 
     ngOnInit(){
         this.load();

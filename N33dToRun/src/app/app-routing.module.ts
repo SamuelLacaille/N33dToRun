@@ -16,10 +16,10 @@ const routes: Routes = [
   //  path: 'pages/inscription',
   //  loadChildren: () => import('./pages/inscription/inscription.module').then( m => m.RegistrationPageModule)
  // },
-  {
-    path: 'pages/map',
-    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
-  },
+  // {
+  //   path: 'pages/map',
+  //   loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
+  // },
   {
     path: 'pages/profil',
     loadChildren: () => import('./pages/profil/profil.module').then( m => m.ProfilPageModule),
@@ -32,7 +32,8 @@ const routes: Routes = [
     path: 'pages/stats',
     loadChildren: () => import('./pages/stats/stats.module').then( m => m.StatsPageModule),
   },
-
+  {
+    path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },

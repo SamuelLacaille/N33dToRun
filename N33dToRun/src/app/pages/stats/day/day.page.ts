@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { PlaceService } from 'src/app/services/place.service';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -21,7 +20,7 @@ export class DayPage implements OnInit {
     private doughnutChart: Chart;
     private lineChart: Chart;
 
-    constructor(public placeService: PlaceService){}
+    constructor(){}
 
     ngOnInit(){
         this.load();
