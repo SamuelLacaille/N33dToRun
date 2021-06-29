@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profil/speakers/update/update.module').then( m => m.UpdatePageModule),
   },
   {
+    path: 'pages/profil/health/update',
+    loadChildren: () => import('./pages/profil/health/update/update.module').then( m => m.UpdatePageModule),
+  },
+  {
     path: 'pages/stats',
     loadChildren: () => import('./pages/stats/stats.module').then( m => m.StatsPageModule),
   },
