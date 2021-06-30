@@ -16,10 +16,26 @@ export class DayPage implements OnInit {
     {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
     {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
   ];
+
+  private data2 = [
+    {"Framework": "Vue", "Stars": "166443", "Released": "2014"},
+    {"Framework": "React", "Stars": "150793", "Released": "2013"},
+    {"Framework": "Angular", "Stars": "62342", "Released": "2016"},
+    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
+    {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
+  ];
+
   private svg;
-  private margin = 20;
+  private margin = 50;
   private width = 350 - (this.margin * 2);
-  private height = 200 - (this.margin * 2);
+  private height = 350 - (this.margin * 2);
+
+  private svgpie;
+  private marginpie = 0;
+  private widthpie = 350;
+  private heightpie = 200;
+  private radius = Math.min(this.widthpie, this.heightpie) / 2 - this.marginpie;
+  private colors;
 
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
@@ -36,7 +52,6 @@ private drawBars(data: any[]): void {
   .range([0, this.width])
   .domain(data.map(d => d.Framework))
   .padding(0.2);
-
   // Draw the X-axis on the DOM
   this.svg.append("g")
   .attr("transform", "translate(0," + this.height + ")")
@@ -66,13 +81,65 @@ private drawBars(data: any[]): void {
   .attr("fill", "#d04a35");
 }
 
+private createColors(): void {
+  this.colors = d3.scaleOrdinal()
+  .domain(this.data.map(d => d.Stars.toString()))
+  .range(["#c7d3ec", "#a5b8db", "#879cc4", "#677795", "#5a6782"]);
+}
 
+private createSvgPie(): void {
+  this.svgpie = d3.select("figure#pie")
+  .append("svg")
+  .attr("width", this.widthpie)
+  .attr("height", this.heightpie)
+  .append("g")
+  .attr(
+    "transform",
+    "translate(" + this.widthpie / 2 + "," + this.heightpie / 2 + ")"
+  );
+}
+
+private drawChart(): void {
+  // Compute the position of each group on the pie:
+  const pie = d3.pie<any>().value((d: any) => Number(d.Stars));
+
+  // Build the pie chart
+  this.svgpie
+  .selectAll('pieces')
+  .data(pie(this.data2))
+  .enter()
+  .append('path')
+  .attr('d', d3.arc()
+    .innerRadius(0)
+    .outerRadius(this.radius)
+  )
+  .attr('fill', (d, i) => (this.colors(i)))
+  .attr("stroke", "#121926")
+  .style("stroke-width", "1px");
+
+  // Add labels
+  const labelLocation = d3.arc()
+  .innerRadius(100)
+  .outerRadius(this.radius);
+  this.svgpie
+  .selectAll('pieces')
+  .data(pie(this.data2))
+  .enter()
+  .append('text')
+  .text(d => d.data.Framework)
+  .attr("transform", d => "translate(" + labelLocation.centroid(d) + ")")
+  .style("text-anchor", "middle")
+  .style("font-size", 15);
+}
 
   constructor() { }
 
   ngOnInit(): void {
     this.createSvg();
+    this.createSvgPie();
     this.drawBars(this.data);
+    this.createColors();
+    this.drawChart();
 }
 
 }
