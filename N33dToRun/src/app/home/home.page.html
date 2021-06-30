@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="text-white">
       N33D TO  RUN
     </ion-title>
   </ion-toolbar>
@@ -9,12 +9,13 @@
 <ion-content class="auth-form">
   <ion-grid>
     <ion-row>
+      <ion-card-content>
+        <img src="assets/pictures/run.png" alt="">
+      </ion-card-content>
       <ion-col align-self-center>
         <ion-button [routerLink]="['/inscription']" expand="block" color="primary">Inscription</ion-button>
 
-        <span class="divider line one-line"> ou </span>
-
-        <span class="already">Déjà inscrit ?</span>
+        <p class="already text-white">Déjà inscrit ?</p>
 
         <ion-button [routerLink]="['/login']" expand="block" color="danger">Connexion</ion-button>
       </ion-col>

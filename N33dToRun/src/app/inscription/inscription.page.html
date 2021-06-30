@@ -3,20 +3,22 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Inscription</ion-title>
+    <ion-title class="text-white">Inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form>
-   
+    <ion-card-content>
+      <img src="assets/pictures/run.png" alt="">
+    </ion-card-content>
     <ion-item lines="full">
-      <ion-label position="floating">Email :</ion-label>
+      <ion-label class="text-white" position="floating">Email :</ion-label>
       <ion-input type="email" #userEmail required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Mot de passe :</ion-label>
+      <ion-label class="text-white" position="floating">Mot de passe :</ion-label>
       <ion-input type="password" #userMdp required></ion-input>
     </ion-item>
 
