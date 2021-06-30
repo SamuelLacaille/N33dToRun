@@ -1,126 +1,78 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Chart } from 'chart.js';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-day',
   templateUrl: './day.page.html',
   styleUrls: ['./day.page.scss'],
 })
-export class DayPage implements OnInit {
+export class DayPage implements OnInit { 
+  private data = [
+    {"Framework": "Vue", "Stars": "166443", "Released": "2014"},
+    {"Framework": "React", "Stars": "150793", "Released": "2013"},
+    {"Framework": "Angular", "Stars": "62342", "Released": "2016"},
+    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
+    {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
+  ];
+  private svg;
+  private margin = 20;
+  private width = 350 - (this.margin * 2);
+  private height = 200 - (this.margin * 2);
 
-    @ViewChild("barCanvas") barCanvas: ElementRef;
-    @ViewChild("doughnutCanvas") doughnutCanvas: ElementRef;
-    @ViewChild("lineCanvas") lineCanvas: ElementRef;
+  private createSvg(): void {
+    this.svg = d3.select("figure#bar")
+    .append("svg")
+    .attr("width", this.width + (this.margin * 2))
+    .attr("height", this.height + (this.margin * 2))
+    .append("g")
+    .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
+}
 
-    private loaded: boolean = false;
-    private places: Object;
-   
-    private barChart: Chart;
-    private doughnutChart: Chart;
-    private lineChart: Chart;
+private drawBars(data: any[]): void {
+  // Create the X-axis band scale
+  const x = d3.scaleBand()
+  .range([0, this.width])
+  .domain(data.map(d => d.Framework))
+  .padding(0.2);
 
-    constructor(){}
+  // Draw the X-axis on the DOM
+  this.svg.append("g")
+  .attr("transform", "translate(0," + this.height + ")")
+  .call(d3.axisBottom(x))
+  .selectAll("text")
+  .attr("transform", "translate(-10,0)rotate(-45)")
+  .style("text-anchor", "end");
 
-    ngOnInit(){
-        this.load();
+  // Create the Y-axis band scale
+  const y = d3.scaleLinear()
+  .domain([0, 200000])
+  .range([this.height, 0]);
 
-        this.barChart = new Chart(this.barCanvas.nativeElement, {
-            type: "bar",
-            data: {
-              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-              datasets: [
-                {
-                  label: "# of Votes",
-                  data: [12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(255, 206, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)"
-                  ],
-                  borderColor: [
-                    "rgba(255,99,132,1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)"
-                  ],
-                  borderWidth: 1
-                }
-              ]
-            },
-            // options: {
-            //   scales: {
-            //     yAxes: [
-            //       {
-            //         ticks: {
-            //           beginAtZero: true
-            //         }
-            //       }
-            //     ]
-            //   }
-            // }
-          });
+  // Draw the Y-axis on the DOM
+  this.svg.append("g")
+  .call(d3.axisLeft(y));
 
-          this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-            type: "doughnut",
-            data: {
-              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-              datasets: [
-                {
-                  label: "# of Votes",
-                  data: [12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(255, 206, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)"
-                  ],
-                  hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#FF6384", "#36A2EB", "#FFCE56"]
-                }
-              ]
-            }
-          });
+  // Create and fill the bars
+  this.svg.selectAll("bars")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", d => x(d.Framework))
+  .attr("y", d => y(d.Stars))
+  .attr("width", x.bandwidth())
+  .attr("height", (d) => this.height - y(d.Stars))
+  .attr("fill", "#d04a35");
+}
 
-          this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-            type: "line",
-            data: {
-              labels: ["January", "February", "March", "April", "May", "June", "July"],
-              datasets: [
-                {
-                  label: "My First dataset",
-                  fill: false,
-                //   lineTension: 0.1,
-                  backgroundColor: "rgba(75,192,192,0.4)",
-                  borderColor: "rgba(75,192,192,1)",
-                  borderCapStyle: "butt",
-                  borderDash: [],
-                  borderDashOffset: 0.0,
-                  borderJoinStyle: "miter",
-                  pointBorderColor: "rgba(75,192,192,1)",
-                  pointBackgroundColor: "#fff",
-                  pointBorderWidth: 1,
-                  pointHoverRadius: 5,
-                  pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                  pointHoverBorderColor: "rgba(220,220,220,1)",
-                  pointHoverBorderWidth: 2,
-                  pointRadius: 1,
-                  pointHitRadius: 10,
-                  data: [65, 59, 80, 81, 56, 55, 40],
-                  spanGaps: false
-                }
-              ]
-            }
-          });
-    }
 
-    load(){
-        this.loaded = false;
-    }
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.createSvg();
+    this.drawBars(this.data);
+}
+
 }
