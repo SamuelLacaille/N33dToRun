@@ -1,0 +1,102 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button [routerLink]="['../']" defaultHref=""></ion-back-button>
+        </ion-buttons>
+    <ion-title>Update</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="updateForm" (submit)="send()">
+      <ion-item>
+          <ion-input type="number" min="0" max="250" placeholder="Poids" formControlName="poids"></ion-input>
+      </ion-item>
+      <div *ngIf="updateForm.controls.poids.invalid && updateForm.controls.poids.dirty">
+          Vous devez saisir un nombre entre 0 et 250
+      </div>
+      <ion-item>
+          <ion-input type="number" min="0" max="250" placeholder="Taille" formControlName="tall"></ion-input>
+      </ion-item>
+      <div *ngIf="updateForm.controls.tall.invalid && updateForm.controls.tall.dirty">
+          Vous devez saisir un nombre entre 0 et 250
+      </div>
+      <ion-item>
+          <mat-label>Groupe Sanguin</mat-label>
+          <select matNativeControl required formControlName="gsanguin">
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="ab">AB</option>
+              <option value="o">O</option>
+          </select>
+      </ion-item>
+          <ion-radio-group value="NON" ormControlName="organe">
+              <ion-label>Donneur d'organe</ion-label>
+            <ion-item>
+              <ion-label>OUI</ion-label>
+              <ion-radio slot="start" value="OUI"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>NON</ion-label>
+              <ion-radio slot="start" value="NON"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <ion-item>
+            <ion-input type="number" min="0" max="250" placeholder="Nombre de Repas par jour" formControlName="poids"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.meal.invalid && updateForm.controls.meal.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
+            <ion-input type="number" min="0" max="250" placeholder="Nombre de FastFood par semaine" formControlName="tall"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.fastFood.invalid && updateForm.controls.fastFood.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
+            <ion-input type="number" min="0" max="250" placeholder="Temps de sport par semaine" formControlName="poids"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.sportTime.invalid && updateForm.controls.sportTime.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
+            <ion-input type="number" min="0" max="250" placeholder="Nombre de cigarettes par jour" formControlName="tall"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.tabac.invalid && updateForm.controls.tabac.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
+            <ion-input type="number" min="0" max="250" placeholder="Durée du sommeil par nuit" formControlName="poids"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.slip.invalid && updateForm.controls.slip.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
+            <mat-label>Achat le plus important</mat-label>
+            <select matNativeControl required formControlName="gsanguin">
+                <option value="iiandes/poissons/oeufs">Viandes/Poissons/Oeufs</option>
+                <option value="surgeles">Surgeles</option>
+                <option value="sucreries/gâteaux">Sucreries/Gâteaux</option>
+                <option value="produits laitiers">Produits Laitiers</option>
+                <option value="plats prepares">Plats Préparés</option>
+                <option value="fruits et légumes">Fruits et Légumes</option>
+                <option value="feculents">Féculents</option>
+                <option value="boissons">Boissons</option>
+            </select>
+        </ion-item>
+        <ion-item>
+            <mat-label>Mobilités</mat-label>
+            <select matNativeControl required formControlName="gsanguin">
+                <option value="douce">Douce (vélo,à pied etc...)</option>
+                <option value="transport en commun">Transport en Commun</option>
+                <option value="voiture/moto/scooter">Voiture/Moto/Scooter</option>
+            </select>
+        </ion-item>
+      <div class="validButton">
+      <div class="vertical">
+          <ion-button type="submit">Envoyer</ion-button>
+          </div>
+      </div>
+  </form>
+</ion-content>

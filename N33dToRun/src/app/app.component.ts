@@ -15,8 +15,6 @@ export class AppComponent {
     { title: 'Profil', url: '/pages/profil', icon: 'person' },
     { title: 'Stats', url: '/pages/stats', icon: 'stats-chart' },
     { title: 'Map', url: '/pages/map', icon: 'map' },
-    { title: 'Inscription', url: '/pages/inscription', icon: 'reader' },
-    { title: 'Connexion', url: '/pages/connexion', icon: 'log-in' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
