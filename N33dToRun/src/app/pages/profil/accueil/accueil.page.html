@@ -13,38 +13,38 @@
 
           <ion-card>
             <ion-item>
-              <ion-icon name="pin" slot="start"></ion-icon>
-              <ion-label>ion-item in a card, icon left, button right</ion-label>
-              <ion-button fill="outline" slot="end">View</ion-button>
+              <ion-icon name="trophy" slot="start"></ion-icon>
+              <ion-label>Objectifs</ion-label>
             </ion-item>
-          
             <ion-card-content>
-              This is content, without any paragraph or header tags,
-              within an ion-card-content element.
+              <ion-label>IMC : </ion-label>
+               - ?? kg
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label>Sommeil : </ion-label>
+               + ?? heure(s)
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label>Consomation Alcool : </ion-label>
+               - ?? verre(s) / semaine
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label> Consomation FastFood : </ion-label>
+               - ?? fastfood / semaine
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label>Activité sportive : </ion-label>
+               + ?? heure(s) / semaine
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label>Consomation Tabac : </ion-label>
+               stopper la consomation de tabac (lien pour aider a arrêter)
+            </ion-card-content>
+            <ion-card-content>
+              <ion-label>Type de mobilité : </ion-label>
+               Privilégié les déplacement non motorisé
             </ion-card-content>
           </ion-card>
-          <ion-card>
-            <ion-item href="#" class="ion-activated">
-              <ion-icon name="wifi" slot="start"></ion-icon>
-              <ion-label>Card Link Item 1 activated</ion-label>
-            </ion-item>
-          
-            <ion-item href="#">
-              <ion-icon name="wine" slot="start"></ion-icon>
-              <ion-label>Card Link Item 2</ion-label>
-            </ion-item>
-          
-            <ion-item class="ion-activated">
-              <ion-icon name="warning" slot="start"></ion-icon>
-              <ion-label>Card Button Item 1 activated</ion-label>
-            </ion-item>
-          
-            <ion-item>
-              <ion-icon name="walk" slot="start"></ion-icon>
-              <ion-label>Card Button Item 2</ion-label>
-            </ion-item>
-          </ion-card>
-
         <ng-template #error>
             <app-error (retry)="load()"
                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">
