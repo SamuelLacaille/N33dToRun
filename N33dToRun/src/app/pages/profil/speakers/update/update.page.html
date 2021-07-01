@@ -1,6 +1,7 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
+
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,27 +14,28 @@
           <div class='logo'></div>
     </div>
   <form [formGroup]="updateForm">
+
       <ion-item>
-          <ion-input placeholder="Prénom" formControlName="name"></ion-input>
+          <ion-input class="text-white" placeholder="Prénom" formControlName="name"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.name.invalid && updateForm.controls.name.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <ion-input placeholder="Nom" formControlName="firstName"></ion-input>
+          <ion-input class="text-white" placeholder="Nom" formControlName="firstName"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.firstName.invalid && updateForm.controls.firstName.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <ion-label position="floating">MM/DD/YYYY</ion-label>
+          <ion-label class="text-white" position="floating">MM/DD/YYYY</ion-label>
           <ion-datetime displayFormat="MM/DD/YYYY" min="2015-01-01" max="2050-12-31" value="2021-06-15T15:03:46.789"></ion-datetime>
         </ion-item>
       <div *ngIf="updateForm.controls.old.invalid && updateForm.controls.old.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <mat-label>Cars</mat-label>
+          <mat-label class="text-white">Cars</mat-label>
           <select matNativeControl required>
               <option value="masculin">Masculin</option>
               <option value="feminin">Féminin</option>
@@ -41,63 +43,23 @@
           </select>
       </ion-item>
       <ion-item>
-          <ion-input type="number" min="0" max="250" placeholder="Poids" formControlName="poids"></ion-input>
-      </ion-item>
-      <div *ngIf="updateForm.controls.poids.invalid && updateForm.controls.poids.dirty">
-          Vous devez saisir un nombre entre 0 et 250
-      </div>
-      <ion-item>
-          <ion-input type="number" min="0" max="250" placeholder="Taille" formControlName="tall"></ion-input>
-      </ion-item>
-      <div *ngIf="updateForm.controls.tall.invalid && updateForm.controls.tall.dirty">
-          Vous devez saisir un nombre entre 0 et 250
-      </div>
-      <ion-item>
-          <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+          <ion-input class="text-white" type="email" placeholder="E-mail" formControlName="email"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.email.invalid && updateForm.controls.email.dirty">
           Vous devez saisir un email valide
       </div>
       <ion-item>
-          <mat-label>Groupe Sanguin</mat-label>
-          <select matNativeControl required formControlName="gsanguin">
-              <option value="a">A</option>
-              <option value="b">B</option>
-              <option value="ab">AB</option>
-              <option value="o">O</option>
-          </select>
-      </ion-item>
-      <ion-item>
-          <ion-input type="tel" placeholder="Telephone" appPhoneMask formControlName="tel"></ion-input>
+          <ion-input class="text-white" type="tel" placeholder="Telephone" appPhoneMask formControlName="tel"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.tel.invalid && updateForm.controls.tel.dirty">
           Vous devez saisir un sujet d'au moins 10 caractères
       </div>
       <ion-item>
-          <ion-input type="tel" formControlName="contactNumber" placeholder="Personne a contacter en cas d'urgence"></ion-input>
+          <ion-input class="text-white" type="tel" formControlName="contactNumber" placeholder="Personne a contacter en cas d'urgence"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.contactNumber.invalid && updateForm.controls.contactNumber.dirty">
           Vous devez saisir un sujet d'au moins 10 caractères
       </div>
-          <ion-radio-group value="NON" ormControlName="organe">
-              <ion-label>Donneur d'ordre</ion-label>
-            <ion-item>
-              <ion-label>OUI</ion-label>
-              <ion-radio slot="start" value="OUI"></ion-radio>
-            </ion-item>
-        
-            <ion-item>
-              <ion-label>NON</ion-label>
-              <ion-radio slot="start" value="NON"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-      <div *ngIf="updateForm.controls.contactNumber.invalid && updateForm.controls.contactNumber.dirty">
-          Vous devez saisir un sujet d'au moins 10 caractères
-      </div>
-      <!-- <div *ngIf="updateForm.controls.organe.invalid && updateForm.controls.organe.dirty">
-          Vous devez saisir un sujet d'au moins 10 caractères
-      </div> -->
-      
       <div class="validButton">
       <div class="vertical">
           <ion-button type="submit" (click)="update()">Envoyer</ion-button>
@@ -105,47 +67,4 @@
       </div>
   </form>
 </ion-content>
-<ion-footer>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button [routerLink]="['../']" defaultHref=""></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>
 
-
-  <!--  
-
-<ion-content>
-  <ion-list lines="full">
-    <form [formGroup]="bookingForm" (ngSubmit)="formSubmit()">
-      <ion-item>
-        <ion-label position="floating">Name</ion-label>
-        <ion-input formControlName="name" type="text" required></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email" type="text" required>
-        </ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Mobile</ion-label>
-        <ion-input formControlName="mobile" type="text" required>
-        </ion-input>
-      </ion-item>
-
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" color="primary" shape="full" expand="block">Book Appointment</ion-button>
-        </ion-col>
-      </ion-row>
-    </form>
-  </ion-list>
-</ion-content>
-
-
-
-
-  -->

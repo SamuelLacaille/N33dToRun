@@ -1,6 +1,6 @@
 <ion-content>
     <div>
-        <ion-row>
+        <ion-row class="text-white">
             <ion-col size="4">
               <div class='blocLeft'>Calorie</div>
               <div class='blocLeft'>vitesse moyenne</div>
@@ -13,34 +13,9 @@
                 <div class='blocRight'>Time</div>
             </ion-col>
           </ion-row>
-          <div class="ion-padding">
-            <!-- <ion-card>
-              <ion-card-header>
-                Bar Chart
-              </ion-card-header>
-              <ion-card-content>
-                <canvas #barCanvas></canvas>
-              </ion-card-content>
-            </ion-card> -->
-        
-            <ion-card>
-              <ion-card-header>
-                Doughnut Chart
-              </ion-card-header>
-              <ion-card-content>
-                <canvas #doughnutCanvas></canvas>
-              </ion-card-content>
-            </ion-card>
-        
-            <ion-card>
-              <ion-card-header>
-                Line Chart
-              </ion-card-header>
-              <ion-card-content>
-                <canvas #lineCanvas></canvas>
-              </ion-card-content>
-            </ion-card>
-          </div>
+          <h2 class="text-white"> Graphique à barres </h2> <figure id="bar"> </figure>
+          <h2 class="text-white">Pie Chart</h2>
+          <figure id="pie"></figure>
         <ng-template #error>
             <app-error (retry)="load()"
                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">

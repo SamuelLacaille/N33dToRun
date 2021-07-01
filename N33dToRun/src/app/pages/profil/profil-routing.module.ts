@@ -26,15 +26,15 @@ const routes: Routes = [
           },
         ]
       },
-      // {
-      //   path: 'map',
-      //   children : [         
-      //     {
-      //       path: '',
-      //       loadChildren: () => import('../map/map.module').then(m => m.MapPageModule),
-      //     },
-      //   ]
-      // },
+      {
+        path: 'health',
+        children : [         
+          {
+            path: '',
+            loadChildren: () => import('./health/health.module').then(m => m.HealthPageModule),
+          },
+        ]
+      },
       {
         path: '',
         redirectTo: 'accueil',
