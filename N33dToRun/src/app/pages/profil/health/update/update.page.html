@@ -67,6 +67,12 @@
             Vous devez saisir un nombre entre 0 et 250
         </div>
         <ion-item>
+            <ion-input class="text-white" type="number" min="0" max="250" placeholder="Nombre de verres par semaine" formControlName="tall"></ion-input>
+        </ion-item>
+        <div *ngIf="updateForm.controls.alcool.invalid && updateForm.controls.alcool.dirty">
+            Vous devez saisir un nombre entre 0 et 250
+        </div>
+        <ion-item>
             <ion-input class="text-white" type="number" min="0" max="250" placeholder="Durée du sommeil par nuit" formControlName="poids"></ion-input>
         </ion-item>
         <div *ngIf="updateForm.controls.slip.invalid && updateForm.controls.slip.dirty">
@@ -75,7 +81,7 @@
         <ion-item>
             <mat-label class="text-white">Achat le plus important</mat-label>
             <select matNativeControl required formControlName="gsanguin">
-                <option value="iiandes/poissons/oeufs">Viandes/Poissons/Oeufs</option>
+                <option value="viandes/poissons/oeufs">Viandes/Poissons/Oeufs</option>
                 <option value="surgeles">Surgeles</option>
                 <option value="sucreries/gâteaux">Sucreries/Gâteaux</option>
                 <option value="produits laitiers">Produits Laitiers</option>

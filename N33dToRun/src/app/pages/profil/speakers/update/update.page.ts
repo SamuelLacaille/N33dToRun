@@ -49,7 +49,7 @@ export class UpdatePage implements OnInit {
             contactNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
         });
     }
-
+*/
 
 
 
