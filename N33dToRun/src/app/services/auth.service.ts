@@ -32,12 +32,14 @@ export class AuthService {
     })
   }
 
+
+
   // Sign in with email/password
   SignIn(email, password) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['/profil']);
+          this.router.navigate(['/pages/profil/speakers']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
