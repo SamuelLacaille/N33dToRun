@@ -1,6 +1,6 @@
 <ion-content>
     <div>
-        <ion-row>
+        <ion-row class="text-white">
             <ion-col size="4">
               <div class='blocLeft'>Calorie</div>
               <div class='blocLeft'>vitesse moyenne</div>
@@ -13,8 +13,8 @@
                 <div class='blocRight'>Time</div>
             </ion-col>
           </ion-row>
-          <h2> Graphique à barres </h2> <figure id="bar"> </figure>
-          <h2>Pie Chart</h2>
+          <h2 class="text-white"> Graphique à barres </h2> <figure id="bar"> </figure>
+          <h2 class="text-white">Pie Chart</h2>
           <figure id="pie"></figure>
         <ng-template #error>
             <app-error (retry)="load()"

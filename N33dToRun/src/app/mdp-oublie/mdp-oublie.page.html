@@ -1,16 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons class="text-white" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Réinitialiser votre mot de passe</ion-title>
+    <ion-title class="text-white">Réinitialiser votre mot de passe</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form>
+    <ion-card-content>
+      <img src="assets/pictures/run.png" alt="">
+    </ion-card-content>
     <ion-item lines="full">
-      <ion-label position="floating">Email :</ion-label>
+      <ion-label class="text-white" position="floating">Email :</ion-label>
       <ion-input type="email" required></ion-input>
     </ion-item>
 
@@ -20,8 +23,8 @@
       </ion-col>
     </ion-row>
 
-    <small>
-     Faites attention à renseigner la bonne adresse mail. 
+    <small class="text-white">
+     Faites attention à renseigner la bonne adresse mail.
     </small>
   </form>
 </ion-content>

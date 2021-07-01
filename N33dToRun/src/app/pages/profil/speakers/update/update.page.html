@@ -1,35 +1,35 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons class="text-white" slot="start">
         <ion-back-button [routerLink]="['../']" defaultHref=""></ion-back-button>
       </ion-buttons>
-    <ion-title>Update</ion-title>
+    <ion-title class="text-white">Mise à jour</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <form [formGroup]="updateForm" (submit)="send()">
       <ion-item>
-          <ion-input placeholder="Prénom" formControlName="name"></ion-input>
+          <ion-input class="text-white" placeholder="Prénom" formControlName="name"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.name.invalid && updateForm.controls.name.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <ion-input placeholder="Nom" formControlName="firstName"></ion-input>
+          <ion-input class="text-white" placeholder="Nom" formControlName="firstName"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.firstName.invalid && updateForm.controls.firstName.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <ion-label position="floating">MM/DD/YYYY</ion-label>
+          <ion-label class="text-white" position="floating">MM/DD/YYYY</ion-label>
           <ion-datetime displayFormat="MM/DD/YYYY" min="2015-01-01" max="2050-12-31" value="2021-06-15T15:03:46.789"></ion-datetime>
         </ion-item>
       <div *ngIf="updateForm.controls.old.invalid && updateForm.controls.old.dirty">
           Vous devez saisir un nom d'au moins 3 cractères
       </div>
       <ion-item>
-          <mat-label>Cars</mat-label>
+          <mat-label class="text-white">Cars</mat-label>
           <select matNativeControl required>
               <option value="masculin">Masculin</option>
               <option value="feminin">Féminin</option>
@@ -37,19 +37,19 @@
           </select>
       </ion-item>
       <ion-item>
-          <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+          <ion-input class="text-white" type="email" placeholder="E-mail" formControlName="email"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.email.invalid && updateForm.controls.email.dirty">
           Vous devez saisir un email valide
       </div>
       <ion-item>
-          <ion-input type="tel" placeholder="Telephone" appPhoneMask formControlName="tel"></ion-input>
+          <ion-input class="text-white" type="tel" placeholder="Telephone" appPhoneMask formControlName="tel"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.tel.invalid && updateForm.controls.tel.dirty">
           Vous devez saisir un sujet d'au moins 10 caractères
       </div>
       <ion-item>
-          <ion-input type="tel" formControlName="contactNumber" placeholder="Personne a contacter en cas d'urgence"></ion-input>
+          <ion-input class="text-white" type="tel" formControlName="contactNumber" placeholder="Personne a contacter en cas d'urgence"></ion-input>
       </ion-item>
       <div *ngIf="updateForm.controls.contactNumber.invalid && updateForm.controls.contactNumber.dirty">
           Vous devez saisir un sujet d'au moins 10 caractères

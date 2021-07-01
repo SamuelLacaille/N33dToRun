@@ -5,3 +5,19 @@ p{
 ion-card-subtitle{
     color: var( --ion-color-tertiary );
 }
+
+ion-header {
+  --ion-background-color: #353535;
+}
+
+ion-content {
+  --ion-background-color: #393939;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-green {
+  color: #2dd36f;
+}
