@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UpdateModel } from 'src/app/models/update.model';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-update',
@@ -10,13 +10,32 @@ import { UpdateModel } from 'src/app/models/update.model';
 export class UpdatePage implements OnInit {
     private updateForm: FormGroup;
 
-    constructor(public formBuilder: FormBuilder){}
+    constructor(public formBuilder: FormBuilder,  public afDB: AngularFireDatabase){}
 
     ngOnInit(){
-        this.buildForm();
+       // this.buildForm();
     }
 
-    buildForm(){
+    update() {
+        this.afDB.list('Informations/').push({
+            nom: 'LACAILLE',
+            prenom: 'Samuel',
+            Age: '24',
+            sexe: 'Homme',
+            poids: '73',
+            taille: '174',
+            email: 'samuel.lacaille@posware.fr',
+            telephone: '0611449517',
+            groupeSanguin: 'A+',
+            Donneur: 'OUI'
+        });
+
+    }
+
+  
+
+}
+ /*  buildForm(){
         this.updateForm = this.formBuilder.group({
             name: ['', [Validators.required, Validators.minLength(3)]],
             firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -33,23 +52,7 @@ export class UpdatePage implements OnInit {
         });
     }
 
-    send(){
-        let values = this.updateForm.value;
-        let model = new UpdateModel(
-            values['name'],
-            values['firstName'],
-            values['old'],
-            values['sex'],
-            values['poids'],
-            values['tall'],
-            values['email'],
-            values['password'],
-            values['gsanguin'],
-            values['tel'],
-            values['contactNumber'],
-            values['organe'],
-        );
-    }
+   */
+    
 
 
-}

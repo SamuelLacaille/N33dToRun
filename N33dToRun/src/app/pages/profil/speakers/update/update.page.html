@@ -4,16 +4,15 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Update</ion-title>
+    <ion-title>Modifier mes Informations</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
     <div>
           <h1>N33dToRun</h1>
           <div class='logo'></div>
-          <h2>Sign In</h2>
     </div>
-  <form [formGroup]="updateForm" (submit)="send()">
+  <form [formGroup]="updateForm">
       <ion-item>
           <ion-input placeholder="Prénom" formControlName="name"></ion-input>
       </ion-item>
@@ -101,7 +100,7 @@
       
       <div class="validButton">
       <div class="vertical">
-          <ion-button type="submit">Envoyer</ion-button>
+          <ion-button type="submit" (click)="update()">Envoyer</ion-button>
           </div>
       </div>
   </form>
@@ -113,3 +112,40 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-footer>
+
+
+  <!--  
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="bookingForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Mobile</ion-label>
+        <ion-input formControlName="mobile" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Book Appointment</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
+
+
+
+
+  -->

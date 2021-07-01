@@ -8,14 +8,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { environment } from '../environments/environment';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyChhCLAMyvdu9VDIzuWvCa_2OHhiSwzkWY',
@@ -39,7 +40,8 @@ export const firebaseConfig = {
   //  {provide: LOCALE_ID, useValue: 'fr' },],
 
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule, HttpClientModule],
+    AngularFireAuthModule, AngularFireDatabaseModule,
+    AngularFireStorageModule,HttpClientModule],
   providers: [SplashScreen, StatusBar, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: LOCALE_ID, useValue: 'fr' },],
 
   bootstrap: [AppComponent],
