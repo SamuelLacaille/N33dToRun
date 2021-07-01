@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UpdateModel } from 'src/app/models/updateInfoS.model';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Component({
   selector: 'app-update',
@@ -10,12 +11,37 @@ import { UpdateModel } from 'src/app/models/updateInfoS.model';
 export class UpdatePage implements OnInit {
     private updateForm: FormGroup;
 
-    constructor(public formBuilder: FormBuilder){}
+    constructor(public formBuilder: FormBuilder, public afDB: AngularFireDatabase){}
 
     ngOnInit(){
-        this.buildForm();
+      //  this.buildForm();
     }
 
+
+
+
+    update() {
+        this.afDB.list('sante/').push({
+            poids: '73',
+            taille: '174',
+            groupeSanguin: 'A+',
+            donneur: 'OUI',
+            repas: '3',
+            fastfood: '1',
+            sport: '2',
+            alcool: '3',
+            tabac: '0',
+            sommeil: '9',
+            mobilité: 'marche',
+        });
+
+    }
+
+
+
+
+
+/*
     buildForm(){
         this.updateForm = this.formBuilder.group({
             poids: ['', [Validators.required, Validators.min(0), Validators.max(250)]],
@@ -31,23 +57,7 @@ export class UpdatePage implements OnInit {
             organe: [],
         });
     }
-
-    send(){
-        let values = this.updateForm.value;
-        let model = new UpdateModel(
-            values['poids'],
-            values['tall'],
-            values['gsanguin'],
-            values['organe'],
-            values['meal'],
-            values['fastFood'],
-            values['sportTime'],
-            values['tabac'],
-            values['slip'],
-            values['buyMostImportant'],
-            values['mobilityType'],
-        );
-    }
+*/
 
 
 }
