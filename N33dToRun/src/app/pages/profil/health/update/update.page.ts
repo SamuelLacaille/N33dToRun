@@ -58,28 +58,7 @@ export class UpdatePage implements OnInit {
             organe: [],
         });
     }
-<<<<<<< HEAD
-
-    send(){
-        let values = this.updateForm.value;
-        let model = new UpdateModel(
-            values['poids'],
-            values['tall'],
-            values['gsanguin'],
-            values['organe'],
-            values['meal'],
-            values['fastFood'],
-            values['sportTime'],
-            values['tabac'],
-            values['alcool'],
-            values['slip'],
-            values['buyMostImportant'],
-            values['mobilityType'],
-        );
-    }
-=======
 */
->>>>>>> 47e6ebfb91a61940b35ade37258a6258ca6d98f9
 
 
 }
