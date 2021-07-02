@@ -10,11 +10,12 @@ import * as d3 from 'd3';
 })
 export class DayPage implements OnInit { 
   private data = [
-    {"Framework": "Vue", "Stars": "166443", "Released": "2014"},
-    {"Framework": "React", "Stars": "150793", "Released": "2013"},
-    {"Framework": "Angular", "Stars": "62342", "Released": "2016"},
-    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
-    {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
+    {"Framework": "8:00", "Stars": "0", "Released": "2014"},
+    {"Framework": "10:00", "Stars": "12", "Released": "2013"},
+    {"Framework": "12:00", "Stars": "4", "Released": "2016"},
+    {"Framework": "14:00", "Stars": "2", "Released": "2010"},
+    {"Framework": "16:00", "Stars": "2", "Released": "2011"},
+    {"Framework": "18:00", "Stars": "6", "Released": "2011"},
   ];
 
   private data2 = [
@@ -62,7 +63,7 @@ private drawBars(data: any[]): void {
 
   // Create the Y-axis band scale
   const y = d3.scaleLinear()
-  .domain([0, 200000])
+  .domain([0, 15])
   .range([this.height, 0]);
 
   // Draw the Y-axis on the DOM
@@ -87,17 +88,6 @@ private createColors(): void {
   .range(["#c7d3ec", "#a5b8db", "#879cc4", "#677795", "#5a6782"]);
 }
 
-private createSvgPie(): void {
-  this.svgpie = d3.select("figure#pie")
-  .append("svg")
-  .attr("width", this.widthpie)
-  .attr("height", this.heightpie)
-  .append("g")
-  .attr(
-    "transform",
-    "translate(" + this.widthpie / 2 + "," + this.heightpie / 2 + ")"
-  );
-}
 
 private drawChart(): void {
   // Compute the position of each group on the pie:
@@ -136,7 +126,6 @@ private drawChart(): void {
 
   ngOnInit(): void {
     this.createSvg();
-    this.createSvgPie();
     this.drawBars(this.data);
     this.createColors();
     this.drawChart();

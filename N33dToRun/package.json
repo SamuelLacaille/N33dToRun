@@ -30,6 +30,7 @@
     "@ionic/angular": "^5.5.2",
     "ajv": "^6.9.1",
     "chart.js": "^3.4.0",
+    "cordova-android": "9.1.0",
     "cordova-browser": "6.0.0",
     "cordova-plugin-splashscreen": "^6.0.0",
     "d3": "^7.0.0",
@@ -95,7 +96,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }

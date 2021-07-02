@@ -2,19 +2,18 @@
     <div>
         <ion-row class="text-white">
             <ion-col size="4">
-              <div class='blocLeft'>Calorie</div>
-              <div class='blocLeft'>vitesse moyenne</div>
+              <div class='blocLeft'>Calorie : -980</div>
+              <div class='blocLeft'>vitesse moyenne : 4.3 km/h</div>
             </ion-col>
             <ion-col size="4">
-                <div class='blocCenter'>230 Pas</div>
+                <div class='blocCenter'>23000 Pas</div>
             </ion-col>
             <ion-col size="4">
-                <div class='blocRight'>distance parcourue</div>
-                <div class='blocRight'>Time</div>
+                <div class='blocRight'>distance parcourue : 16km</div>
+                <div class='blocRight'>...</div>
             </ion-col>
           </ion-row>
-          <h2 class="text-white"> Graphique à barres </h2> <figure id="bar"> </figure>
-          <h2 class="text-white">Pie Chart</h2>
+          <h2 class="text-white"> Vitesse moyenne </h2> <figure id="bar"> </figure>
           <figure id="pie"></figure>
         <ng-template #error>
             <app-error (retry)="load()"
