@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  currentUser = null;
+
   public appPages = [
     { title: 'Home', url: '/pages/home', icon: 'home' },
     { title: 'Profil', url: '/pages/profil', icon: 'person' },
@@ -28,8 +31,13 @@ export class AppComponent {
   
     
   ) {
-  
+   //this.afAuth.authState.subscribe((user) => (this.currentUser = user));
   }
-
-
+/*
+  logInUser(): void{
+    this.afAuth.setPersistence('session').then(()=>{
+      this.afAuth.signInWithEmailAndPassword(environment.email, environment.password).then(userCredential => this.currentUser = userCredential.user)
+    })
+  }
+*/
 }

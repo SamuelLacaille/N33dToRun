@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/stats/stats.module').then( m => m.StatsPageModule),
   },
   {
+    path: 'pages/map',
+    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
