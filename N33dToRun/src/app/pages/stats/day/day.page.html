@@ -1,20 +1,26 @@
 <ion-content>
     <div>
-        <ion-row class="text-white">
-            <ion-col size="4">
-              <div class='blocLeft'>Calorie : -980</div>
-              <div class='blocLeft'>vitesse moyenne : 4.3 km/h</div>
+
+        <ion-row class="text-white" >
+            <ion-col>
+              <div class='blocLeft'><h2>Calories</h2> {{ sumCalorie }}</div>
+              <div class='blocLeft'><h2>vitesse moyenne</h2>{{ moyenVit }} km/h </div>
             </ion-col>
             <ion-col size="4">
-                <div class='blocCenter'>23000 Pas</div>
+                <div class='blocCenter'>
+                    <h2>Pas</h2>
+                    {{ sumPas }}
+                </div>
             </ion-col>
             <ion-col size="4">
-                <div class='blocRight'>distance parcourue : 16km</div>
-                <div class='blocRight'>...</div>
+                <div class='blocRight'><h2>parcourue</h2>{{sumDis}} km </div>
+                <div class='blocRight'><h2>Time</h2> {{ sumDay }} Heure(s)</div>
             </ion-col>
           </ion-row>
-          <h2 class="text-white"> Vitesse moyenne </h2> <figure id="bar"> </figure>
-          <figure id="pie"></figure>
+          <h2 class="text-white"> Nombre de pas par tranche horaire </h2> <figure id="barDay"> </figure>
+          <h2 class="text-white">Effort physique au cours de la journée</h2>
+          <figure id="pieDay"></figure>
+
         <ng-template #error>
             <app-error (retry)="load()"
                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">

@@ -1,43 +1,85 @@
 <ion-content>
     <div>
-        <ion-card>
-            <ion-card-header>
-              <ion-card-title class="text-green">Bonjour Samuel</ion-card-title>
+
+
+        <ion-card >
+            <ion-card-header  *ngFor="let user of informations">
+              <ion-card-title class="text-green">{{ user.prenom + ' ' + user.nom }}</ion-card-title>
             </ion-card-header>
 
-            <ion-card-content class="text-white">
-              Les performances individuelles, ce n'est pas le plus important. On gagne et on perd en équipe..
-            </ion-card-content>
+
           </ion-card>
 
-          <ion-card>
+          <ion-card *ngFor="let health of sante">
             <ion-item>
               <ion-icon class="text-green" name="trophy" slot="start"></ion-icon>
               <ion-label class="text-green">Objectifs</ion-label>
             </ion-item>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) < 18.5 ">
               <ion-label>IMC : </ion-label>
-               - ?? 
+
+              IMC < 18,5 kg/m² : insuffisance pondérale
+
             </ion-card-content>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) < 24.9 && health.poids / ((health.taille * health.taille) / 10000) > 18.5 ">
+              <ion-label>IMC : </ion-label>
+              18,5 < IMC < 24,9 : poids normal
+             </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) < 29.9 && health.poids / ((health.taille * health.taille) / 10000) > 25 ">
+              <ion-label>IMC : </ion-label>
+              25 < IMC < 29,9 : surpoids
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) > 30 ">
+              <ion-label>IMC : </ion-label>
+              IMC > 30 : obésité
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.sommeil < 7 ">
               <ion-label>Sommeil : </ion-label>
-               + ?? heure(s)
+             + {{ 7 - health.sommeil}} heure(s)
             </ion-card-content>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.sommeil > 6 ">
+              <ion-label>Sommeil : </ion-label>
+             Vous avez un bon temps de récupération {{ health.sommeil }} h / nuit
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.alcool > 10 ">
               <ion-label>Consomation Alcool : </ion-label>
-               - ?? verre(s) / semaine
+               - {{health.alcool - 10}} verre(s) / semaine
             </ion-card-content>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.alcool < 10 ">
+              <ion-label>Consomation Alcool : </ion-label>
+               Votre consommation d'alcool est raisonnable : {{ health.alcool }} verre(s) / semaine
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.alcool == 10 ">
+              <ion-label>Consomation Alcool : </ion-label>
+               Vous êtes à la limite de la consommation raisonnable d'alcool : 10 verres / semaine
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.alcool == 0 ">
+              <ion-label>Consomation Alcool : </ion-label>
+               Votre consommation d'alcool est parfaite : 0 verre
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.fastfood == 2 || health.fastfood == 3 ">
               <ion-label> Consomation FastFood : </ion-label>
-               - 0 fastfood / semaine
+
+              Vous êtes à la limite de la consommation raisonnable de fast-food : {{ health.fastfood }} / par semaine
+
             </ion-card-content>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.fastfood < 2 ">
+              <ion-label> Consomation FastFood : </ion-label>
+              Votre consommation de fast-food est raisonnable : {{ health.fastfood }} / semaine
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.sport < 2.5 ">
               <ion-label>Activité sportive : </ion-label>
-               + 0 heure(s) / semaine
+
+              - {{ 2.5 - health.sport }}  heure(s) / semaine
+
             </ion-card-content>
-            <ion-card-content class="text-white">
+            <ion-card-content class="text-white" *ngIf=" health.sport > 2.49 ">
+              <ion-label>Activité sportive : </ion-label>
+              + {{ health.sport - 2.5 }}  heure(s) / semaine
+            </ion-card-content>
+            <ion-card-content class="text-white" *ngIf=" health.tabac > 0 ">
               <ion-label>Consomation Tabac : </ion-label>
-               stopper la consomation de tabac (lien pour aider a arrêter)
+               stopper la consomation de tabac <a href="https://www.nicotinell.fr/conseils-pour-arreter-fumer?gclsrc=aw.ds&gclid=CjwKCAjwz_WGBhA1EiwAUAxIcTdR3RD_QdNCiTquXiL6GrW2qbvHVBhP4ECS2PMNnCTxunKV6-iD0RoC4rgQAvD_BwE">Nicotinell</a>
             </ion-card-content>
             <ion-card-content class="text-white">
               <ion-label>Type de mobilité : </ion-label>

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { DayPageRoutingModule } from './day-routing.module';
 
 import { DayPage } from './day.page';
-// import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { DayPage } from './day.page';
     FormsModule,
     IonicModule,
     DayPageRoutingModule,
-    // SharedModule,
   ],
   declarations: [DayPage]
 })
