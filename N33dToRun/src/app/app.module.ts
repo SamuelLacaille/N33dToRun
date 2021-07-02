@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-
+import { LocalNotifications} from '@ionic-native/local-notifications/ngx'
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -42,7 +42,7 @@ export const firebaseConfig = {
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule, AngularFireDatabaseModule,
     AngularFireStorageModule,HttpClientModule],
-  providers: [SplashScreen, StatusBar, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: LOCALE_ID, useValue: 'fr' },],
+  providers: [SplashScreen, StatusBar,LocalNotifications, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: LOCALE_ID, useValue: 'fr' },],
 
   bootstrap: [AppComponent],
 })
