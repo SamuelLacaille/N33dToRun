@@ -21,12 +21,14 @@ export class DayPage implements OnInit {
   constructor(){}
 
   private data = [
+
     {"Hour": "00H01 - 06H00", "Pas": "28", "Released": "2021"},
     {"Hour": "06H01 - 11H00", "Pas": "2526", "Released": "2021"},
     {"Hour": "11H01 - 14H00", "Pas": "200", "Released": "2021"},
     {"Hour": "14H01 - 19H00", "Pas": "1560", "Released": "2021"},
     {"Hour": "19H00 - 21H00", "Pas": "116", "Released": "2021"},
     {"Hour": "22H00 - 00H00", "Pas": "49", "Released": "2021"},
+
   ];
 
   private data2 = [
@@ -78,7 +80,9 @@ private drawBars1(data: any[]): void {
 
   // Create the Y-axis band scale
   const y = d3.scaleLinear()
+
   .domain([0, 3000])
+
   .range([this.height, 0]);
 
   // Draw the Y-axis on the DOM
@@ -103,6 +107,7 @@ private createColors1(): void {
   .range(["#c7d3ec", "#a5b8db", "#879cc4", "#677795", "#5a6782"]);
 }
 
+
 private createSvgPie1(): void {
   this.svgpie = d3.select("figure#pieDay")
   .append("svg")
@@ -114,6 +119,7 @@ private createSvgPie1(): void {
     "translate(" + this.widthpie / 2 + "," + this.heightpie / 2 + ")"
   );
 }
+
 
 private drawChart1(): void {
   // Compute the position of each group on the pie:
@@ -151,6 +157,7 @@ private drawChart1(): void {
   // constructor() { }
 
   ngOnInit(): void {
+
     this.createSvg1();
     this.createSvgPie1();
     this.drawBars1(this.data);
@@ -197,6 +204,7 @@ private drawChart1(): void {
     })
 
     this.moyenVit = Math.round(sumVitesse / vitesse.length)
+
 
 }
 

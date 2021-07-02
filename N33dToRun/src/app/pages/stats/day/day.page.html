@@ -1,5 +1,6 @@
 <ion-content>
     <div>
+
         <ion-row class="text-white" >
             <ion-col>
               <div class='blocLeft'><h2>Calories</h2> {{ sumCalorie }}</div>
@@ -19,6 +20,7 @@
           <h2 class="text-white"> Nombre de pas par tranche horaire </h2> <figure id="barDay"> </figure>
           <h2 class="text-white">Effort physique au cours de la journée</h2>
           <figure id="pieDay"></figure>
+
         <ng-template #error>
             <app-error (retry)="load()"
                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">

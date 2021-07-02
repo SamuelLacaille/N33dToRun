@@ -1,9 +1,12 @@
 <ion-content>
     <div>
+
+
         <ion-card >
             <ion-card-header  *ngFor="let user of informations">
               <ion-card-title class="text-green">{{ user.prenom + ' ' + user.nom }}</ion-card-title>
             </ion-card-header>
+
 
           </ion-card>
 
@@ -14,7 +17,9 @@
             </ion-item>
             <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) < 18.5 ">
               <ion-label>IMC : </ion-label>
+
               IMC < 18,5 kg/m² : insuffisance pondérale
+
             </ion-card-content>
             <ion-card-content class="text-white" *ngIf=" health.poids / ((health.taille * health.taille) / 10000) < 24.9 && health.poids / ((health.taille * health.taille) / 10000) > 18.5 ">
               <ion-label>IMC : </ion-label>
@@ -54,7 +59,9 @@
             </ion-card-content>
             <ion-card-content class="text-white" *ngIf=" health.fastfood == 2 || health.fastfood == 3 ">
               <ion-label> Consomation FastFood : </ion-label>
+
               Vous êtes à la limite de la consommation raisonnable de fast-food : {{ health.fastfood }} / par semaine
+
             </ion-card-content>
             <ion-card-content class="text-white" *ngIf=" health.fastfood < 2 ">
               <ion-label> Consomation FastFood : </ion-label>
@@ -62,7 +69,9 @@
             </ion-card-content>
             <ion-card-content class="text-white" *ngIf=" health.sport < 2.5 ">
               <ion-label>Activité sportive : </ion-label>
+
               - {{ 2.5 - health.sport }}  heure(s) / semaine
+
             </ion-card-content>
             <ion-card-content class="text-white" *ngIf=" health.sport > 2.49 ">
               <ion-label>Activité sportive : </ion-label>
