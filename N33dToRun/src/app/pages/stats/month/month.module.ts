@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { MonthPageRoutingModule } from './month-routing.module';
 
 import { MonthPage } from './month.page';
-// import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { MonthPage } from './month.page';
     FormsModule,
     IonicModule,
     MonthPageRoutingModule,
-    // SharedModule,
   ],
   declarations: [MonthPage]
 })

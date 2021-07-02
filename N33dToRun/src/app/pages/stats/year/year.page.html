@@ -1,6 +1,21 @@
 <ion-content>
     <div>
-
+        <ion-row class="text-white">
+            <ion-col size="4">
+              <div class='blocLeft'>Calorie</div>
+              <div class='blocLeft'>vitesse moyenne</div>
+            </ion-col>
+            <ion-col size="4">
+                <div class='blocCenter'>230 Pas</div>
+            </ion-col>
+            <ion-col size="4">
+                <div class='blocRight'>distance parcourue</div>
+                <div class='blocRight'>Time</div>
+            </ion-col>
+          </ion-row>
+          <h2 class="text-white">Nombre de jour total d'activité physique par Mois </h2> <figure id="barYear"> </figure>
+          <h2 class="text-white">Comparatif nombre de pas par Mois </h2>
+          <figure id="pieYear"></figure>
         <ng-template #error>
             <app-error (retry)="load()"
                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">
